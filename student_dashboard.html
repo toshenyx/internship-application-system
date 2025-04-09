@@ -1,0 +1,22 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Student Dashboard</title>
+</head>
+<body>
+    <h1>Welcome to your Dashboard, {{ current_user.id }}</h1>
+    <a href="{{ url_for('index') }}">Back to Available Internships</a>
+    <h2>Your Applications:</h2>
+    <ul>
+        {% if applied_internships %}
+            {% for app in applied_internships %}
+                <li>{{ app.title }} at {{ app.company }}</li>
+            {% endfor %}
+        {% else %}
+            <p>You haven't applied for any internships yet.</p>
+        {% endif %}
+    </ul>
+</body>
+</html>

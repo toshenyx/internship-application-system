@@ -1,0 +1,23 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Admin Dashboard</title>
+    <link rel="stylesheet" href="{{ url_for('static', filename='style.css') }}">
+</head>
+<body>
+    <nav>
+        <a href="/">Home</a>
+        <a href="/post_internship">Post Internship</a>
+    </nav>
+
+    <h1>Admin Dashboard</h1>
+    <h2>Posted Internships</h2>
+    <ul>
+        {% for internship in internships %}
+        <li>{{ internship.title }} at {{ internship.company }}</li>
+        {% endfor %}
+    </ul>
+</body>
+</html>

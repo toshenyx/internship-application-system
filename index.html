@@ -1,0 +1,35 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Internship Allocation System</title>
+</head>
+<body>
+    <h1>Welcome to the Internship Portal</h1>
+    {% if current_user.is_authenticated %}
+        <p>Logged in as {{ current_user.id }}. <a href="{{ url_for('logout') }}">Logout</a></p>
+        <a href="{{ url_for('student_dashboard') }}">Go to Dashboard</a>
+    {% else %}
+        <p><a href="{{ url_for('login') }}">Login</a></p>
+    {% endif %}
+    
+    <h2>Available Internships:</h2>
+    <ul>
+        {% for internship in internships %}
+            <li>
+                <strong>{{ internship.title }}</strong> - {{ internship.company }} <br>
+                {{ internship.description }} <br>
+                {% if current_user.is_authenticated %}
+                    <form action="{{ url_for('apply') }}" method="post">
+                        <input type="hidden" name="internship_id" value="{{ internship.id }}">
+                        <button type="submit">Apply Now</button>
+                    </form>
+                {% else %}
+                    <p><a href="{{ url_for('login') }}">Login to apply</a></p>
+                {% endif %}
+            </li>
+        {% endfor %}
+    </ul>
+</body>
+</html>

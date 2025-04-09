@@ -1,0 +1,18 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Post Internship</title>
+    <link rel="stylesheet" href="{{ url_for('static', filename='style.css') }}">
+</head>
+<body>
+    <h1>Post a New Internship</h1>
+    <form action="/post_internship" method="POST">
+        <input type="text" name="title" placeholder="Internship Title" required><br>
+        <input type="text" name="company" placeholder="Company Name" required><br>
+        <textarea name="description" placeholder="Internship Description" required></textarea><br>
+        <input type="submit" value="Post Internship">
+    </form>
+</body>
+</html>
