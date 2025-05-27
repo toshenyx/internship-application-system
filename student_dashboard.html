@@ -7,7 +7,7 @@
 </head>
 <body>
     <h1>Welcome to your Dashboard, {{ current_user.id }}</h1>
-    <a href="{{ url_for('index') }}">Back to Available Internships</a>
+    <a href="{{ url_for('index') }}"> Available Internships</a>
     <h2>Your Applications:</h2>
     <ul>
         {% if applied_internships %}
